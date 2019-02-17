@@ -62,8 +62,8 @@ modules-center =
 modules-right = spotify xbacklight alsa memory wlan eth battery date powermenu
 
 tray-position = left
-tray-padding = 1
-;tray-transparent = true
+tray-padding = 2
+tray-transparent = true
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -171,6 +171,7 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 label-separator = \
 
 
+
 [module/spotify]
 type = custom/script
 interval = 1
@@ -274,10 +275,10 @@ type = internal/date
 interval = 5
 
 date =
-date-alt = " %Y-%m-%d"
+date-alt = "%m-%d-%Y"
 
-time = %H:%M
-time-alt = %H:%M:%S
+time = %l:%M
+time-alt = %l:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}

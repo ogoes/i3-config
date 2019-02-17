@@ -206,10 +206,17 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
+
+
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+bindsym Print exec gnome-screenshot -i
+
+bindsym $mod+button3 floating toggle
 
 exec_always nm-applet
 exec dropbox
@@ -218,10 +225,11 @@ exec ulauncher
 
 exec_always synclient TapButton{1=1,2=3,3=2} AccelFactor=0.03 VertTwoFingerScroll=1 HorizTwoFingerScroll=1
 
-exec_always feh --bg-scale ~/Pictures/.elfen.jpg
+exec_always feh --bg-scale $HOME/.config/.wallpapers/.elfen.jpg
 exec_always --no-startup-id compton --backend glx --vsync opengl --config ~/.config/compton.conf
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always xinput set-prop 'Atmel Atmel maXTouch Digitizer' 'Device Enabled' 0
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id $HOME/.config/.noBattery.sh
 
 bindsym $mod+p exec i3lock-fancy 
 
@@ -251,4 +259,5 @@ for_window [class="Firefox"] border pixel 1
 for_window [class="Google-chrome"] border pixel 1
 for_window [class="Spotify"] floating enable border normal
 for_window [class="Nautilus"] floating enable border normal
+
 
