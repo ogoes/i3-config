@@ -250,7 +250,6 @@ assign [class="Google-chrome"] $ws2
 assign [class="Spotify"] $ws10
 
 
-
 default_border pixel 3
 hide_edge_borders smart
 
