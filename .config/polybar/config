@@ -19,7 +19,7 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #222
-background-alt = #4242424
+background-alt = #111
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
@@ -34,7 +34,7 @@ height = 25
 radius = 2
 fixed-center = true
 
-border-bottom-size  = 0
+border-bottom-size  = -1
 border-top-size     = 5
 
 background = ${colors.background}
@@ -63,9 +63,9 @@ modules-center = xwindow
 modules-right = spotify xbacklight alsa memory wlan eth battery date powermenu
 
 tray-position = left
-tray-padding = 1
-tray-transparent = true
-tray-background = ${colors.background}
+tray-padding = 3
+;tray-transparent = true
+;tray-background = ${colors.background}
 
 
 ;wm-restack = bspwm
@@ -161,7 +161,7 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
 label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-underline = #222
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor

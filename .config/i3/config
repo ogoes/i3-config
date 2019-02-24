@@ -230,8 +230,14 @@ exec_always --no-startup-id compton --backend glx --vsync opengl --config ~/.con
 exec_always xinput set-prop 'Atmel Atmel maXTouch Digitizer' 'Device Enabled' 0
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id $HOME/.config/.noBattery.sh
+exec --no-startup-id xset dpms 500 0 0
+exec --no-startup-id betterlockscreen -u $HOME/.config/.wallpapers/.pig.jpg
+exec --no-startup-id xautolock -time 10 -locker "betterlockscreen -l dimblur"
 
-bindsym $mod+p exec i3lock-fancy 
+
+# bindsym $mod+p exec i3lock-fancy
+bindsym $mod+p exec betterlockscreen -l dimblur -t "Otávio Goes (GOrd)"
+
 
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
@@ -248,6 +254,7 @@ assign [class="Code"] $ws3
 assign [class="Firefox"] $ws2
 assign [class="Google-chrome"] $ws2
 assign [class="Spotify"] $ws10
+for_window [class="Spotify"] move to workspace $ws10
 
 
 default_border pixel 3
