@@ -1,0 +1,8 @@
+[Default Applications]
+x-scheme-handler/mailspring=mailspring.desktop
+inode/directory=org.gnome.Nautilus.desktop
+
+[Added Associations]
+x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
+text/plain=org.gnome.gedit.desktop;

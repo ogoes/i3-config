@@ -30,7 +30,7 @@ alert = #bd2c40
 [bar/mybar]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 25
+height = 26
 radius = 2
 fixed-center = true
 
@@ -40,14 +40,14 @@ border-top-size     = 5
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 1
+line-size = 0
 line-color = #fff
 
 border-size = 5
 border-color = #fff#00000000
 
-padding-left = 0
-padding-right = 1
+padding-left = 2
+padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 1
@@ -62,14 +62,14 @@ modules-left = bspwm i3
 modules-center = xwindow
 modules-right = spotify xbacklight alsa memory wlan eth battery date powermenu
 
-tray-position = left
-tray-padding = 3
+# tray-position = left
+# tray-padding = 3
 ;tray-transparent = true
 ;tray-background = ${colors.background}
 
 
 ;wm-restack = bspwm
-;wm-restack = i3
+wm-restack = i3
 
 ;override-redirect = true
 
@@ -81,6 +81,12 @@ scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 ;cursor-scroll = ns-resize
+
+[module/ping]
+type = custom/script
+exec = ~/.config/polybar/ping.sh
+interval = 1
+
 
 [module/xwindow]
 type = internal/xwindow
@@ -190,13 +196,19 @@ interval = 1
 format-prefix = "  "
 format = <label>
 exec = python $HOME/.config/polybar/spotify_status.py -f '{artist}: {song}'
+format-prefix-foreground = ${colors.foreground-alt}
 
 # format-underline = #1db954
 
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/arch.sh
+interval = 10
 
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online-foreground = ${colors.foreground-alt}
 
 icon-prev = 
 icon-stop = 
@@ -211,12 +223,15 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <ramp> <bar>
+format-foreground = ${colors.foreground-alt}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
 
-bar-width = 9
+bar-width = 10
 bar-indicator = 
 bar-indicator-foreground = #fff
 bar-indicator-font = 2
@@ -273,12 +288,12 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/eth]
 type = internal/network
 interface = enp3s0
-interval = 3.0
+interval = 1.0
 
 # format-connected-underline = #55aa55
-format-connected-prefix = " "
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected = %downspeed%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -302,32 +317,6 @@ format-prefix-foreground = ${colors.foreground-alt}
 
 label = %date%%time%
 
-[module/pulseaudio]
-type = internal/pulseaudio
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
-label-volume-foreground = ${root.foreground}
-
-label-muted = 🔇 muted
-label-muted-foreground = #666
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/alsa]
 type = internal/alsa
@@ -337,9 +326,12 @@ format-volume = <ramp-volume> <bar-volume>
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+format-volume-foreground = ${colors.foreground-alt}
 
 format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground-alt}
+
 label-muted = muted
 
 bar-volume-width = 20
@@ -363,53 +355,20 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 100
+full-at = 101
 
-format-charging = <animation-charging> <label-charging>
+format-charging =  <label-charging>
+format-charging-foreground = ${colors.foreground-alt}
+label-charging = %percentage%%
+label-charging-foreground = #ddd
+# label-charging = Charging %percentage%%
 format-charging-underline = 
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging =  <label-discharging>
+# format-discharging-underline = ${self.format-charging-underline}
+format-discharging-foreground = ${colors.foreground-alt}
+label-discharging-foreground = #ddd
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
