@@ -14,7 +14,7 @@ set $mod Mod1
 set $bg-color 		#424242
 set $text-color		#DBDBDB
 set $urgent-bg-color	#B12424
-set $inactive-bg-color  #494949
+set $inactive-bg-color  #222222
 
 
 
@@ -264,7 +264,7 @@ for_window [class="Code"] border pixel 2
 for_window [class="Firefox"] border pixel 1
 for_window [class="Google-chrome"] border pixel 1
 for_window [class="Spotify"] border none
-for_window [class="kitty"] border pixel 1
+for_window [class="kitty"] border pixel 2
 for_window [class="Nautilus"] floating enable border none
 
 
