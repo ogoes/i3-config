@@ -275,3 +275,4 @@ bindsym $mod+XF86AudioPlay resize shrink height $px px or $px ppt
 bindsym $mod+XF86AudioStop resize grow height $px px or $px ppt
 bindsym $mod+XF86AudioNext resize grow width $px px or $px ppt
 
+bindsym $mod+b exec polybar-msg cmd toggle
