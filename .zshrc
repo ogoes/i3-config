@@ -110,9 +110,9 @@ source $ZSH/oh-my-zsh.sh
 
 alias feira='cd $HOME/Git/municipalMarketFairControl/; tilix ./frontend; cd backend; enablemy'
 alias key='sudo setxkbmap -model abnt2 -layout br -variant abnt2'
-alias clone='~/.screenlayout/clone.sh'
-alias dual='~/.screenlayout/dual.sh'
-alias only='~/.screenlayout/only.sh'
+alias clone='~/.config/clone.sh'
+alias duet='~/.config/duet.sh'
+alias only='~/.config/only.sh'
 alias up='yaourt -Syua --noconfirm'
 alias ls='ls --color=auto'
 alias sf='screenfetch'
@@ -133,3 +133,6 @@ autoload -Uz compinit
 compinit
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
+
+
+MONITOR="LVDS1"

@@ -108,16 +108,44 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
+
+# Terminal
 set $ws1 "1"
+# Browser
 set $ws2 "2"
+# Code Editor
 set $ws3 "3"
+# Arquivos
 set $ws4 "4"
+# Stuffs
 set $ws5 "5"
+# Stuffs
 set $ws6 "6"
+# Stuffs
 set $ws7 "7"
+# Video
 set $ws8 "8"
+# Email
 set $ws9 "9"
+# Spotify
 set $ws10 "10"
+
+workspace_layout tabbed
+
+workspace $ws1 output LVDS1
+workspace $ws2 output LVDS1
+workspace $ws3 output LVDS1
+workspace $ws4 output LVDS1
+workspace $ws5 output VGA1 LVDS1
+workspace $ws6 output VGA1 LVDS1
+workspace $ws7 output VGA1 LVDS1
+workspace $ws8 output VGA1 LVDS1
+workspace $ws9 output LVDS1 
+workspace $ws10 output VGA1 LVDS1
+
+
+bindsym $mod+plus move workspace to output right
+bindsym $mod+minus move workspace to output right
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -226,7 +254,7 @@ exec ulauncher
 exec_always synclient TapButton{1=1,2=3,3=2} AccelFactor=0.03 VertTwoFingerScroll=1 HorizTwoFingerScroll=1
 exec_always xinput set-prop 'Atmel Atmel maXTouch Digitizer' 'Device Enabled' 0
 
-exec_always feh --bg-scale $HOME/.config/.wallpapers/.elfen.jpg
+# exec_always feh --bg-scale $HOME/.config/.wallpapers/.elfen.jpg
 exec_always --no-startup-id compton --backend glx --vsync opengl --config ~/.config/compton.conf
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id $HOME/.config/.noBattery.sh
@@ -266,6 +294,7 @@ for_window [class="Google-chrome"] border pixel 1
 for_window [class="Spotify"] border none
 for_window [class="kitty"] border pixel 2
 for_window [class="Nautilus"] floating enable border none
+for_window [class="Evince"] floating enable border none
 
 
 set $px 5
@@ -276,3 +305,5 @@ bindsym $mod+XF86AudioStop resize grow height $px px or $px ppt
 bindsym $mod+XF86AudioNext resize grow width $px px or $px ppt
 
 bindsym $mod+b exec polybar-msg cmd toggle
+bindsym $mod+braceright exec polybar -r mybar
+
