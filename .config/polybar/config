@@ -62,8 +62,8 @@ modules-left = bspwm i3
 modules-center = xwindow
 modules-right = spotify xbacklight alsa cpu memory wlan eth battery date powermenu
 
-# tray-position = left
-# tray-padding = 3
+tray-position = left
+tray-padding = 2
 ;tray-transparent = true
 ;tray-background = ${colors.background}
 

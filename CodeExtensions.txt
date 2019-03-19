@@ -1,0 +1,29 @@
+Adonis Js
+Dart
+Flutter
+Auto Close Tag
+Auto Rename Tag
+Better Comments
+blackai-theme
+Bracket Pair Colorizer
+C/C++
+C++ Intellisense
+Color Highligdark-plus-syntax
+ESLint
+GitLens
+Import Cost
+Indent-rainbow
+Material Icon Theme
+Material THeme
+open native terminal
+Panda Theme
+Prettier
+Project Manager
+PyDoc
+Python
+REST Client
+Sublime Material Theme Sublime Text Keymap
+Vetur
+VS Live Share
+vscode-icons
+yarn

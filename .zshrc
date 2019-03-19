@@ -11,6 +11,7 @@ export ZSH="/home/gord/.oh-my-zsh"
 #ZSH_THEME="mh"
 ZSH_THEME="spaceship"
 SPACESHIP_CHAR_SYMBOL='❱ '
+SPACESHIP_DOCKER_SYMBOL=''
 SPACESHIP_DIR_TRUNC_PREFIX='../'
 SPACESHIP_USER_SHOW='needed'
 #SPACESHIP_BATTERY_SHOW='always'
@@ -124,6 +125,9 @@ alias la='ls -a'
 alias vi='vim'
 alias mininet='ssh -Y mininet@192.168.56.102'
 alias c='echo "" >'
+alias l='lsd -la'
+alias la='lsd -a'
+alias ll='lsd -l'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

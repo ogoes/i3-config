@@ -143,9 +143,11 @@ workspace $ws8 output VGA1 LVDS1
 workspace $ws9 output LVDS1 
 workspace $ws10 output VGA1 LVDS1
 
+bindsym $mod+plus move container to output right
+bindsym $mod+minus move container to output right
 
-bindsym $mod+plus move workspace to output right
-bindsym $mod+minus move workspace to output right
+bindsym $mod+Shift+plus move workspace to output right
+bindsym $mod+Shift+minus move workspace to output right
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -249,12 +251,12 @@ bindsym $mod+button3 floating toggle
 exec nm-applet
 exec dropbox
 exec mailspring -b
-exec ulauncher
 
 exec_always synclient TapButton{1=1,2=3,3=2} AccelFactor=0.03 VertTwoFingerScroll=1 HorizTwoFingerScroll=1
 exec_always xinput set-prop 'Atmel Atmel maXTouch Digitizer' 'Device Enabled' 0
 
-# exec_always feh --bg-scale $HOME/.config/.wallpapers/.elfen.jpg
+exec nitrogen --restore
+exec cerebro
 exec_always --no-startup-id compton --backend glx --vsync opengl --config ~/.config/compton.conf
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id $HOME/.config/.noBattery.sh
